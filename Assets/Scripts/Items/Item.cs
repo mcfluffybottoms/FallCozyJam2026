@@ -14,6 +14,8 @@ public abstract class Item
     public bool Bought => _bought;
     public bool Rebuyable => _rebuyable;
 
-    public abstract void Activate();
+    public abstract void Press(Vector3 pos);
+    public abstract void Hold(Vector3 pos);
+    public abstract void Release(Vector3 pos);
     public abstract void Buy();
 }

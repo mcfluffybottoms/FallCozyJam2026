@@ -4,10 +4,15 @@ using UnityEngine;
 [Serializable]
 public class MoneySaver
 {
-    [SerializeField] private int _money = 10;
+    [SerializeField] private int _money = 100;
     public int Money => _money;
 
     public event Action<int> OnMoneyChanged;
+
+    public MoneySaver(int money)
+    {
+        _money = money;
+    }
 
     public void IncreaseMoney(int amount)
     {

@@ -1,11 +1,17 @@
 using System;
+using System.Collections.Generic;
+using Items.Actions;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [Serializable]
 public class WaterCan : Item
 {
     public int Radius { get; private set; } = 5;
     public int WaterLevel { get; private set; } = 1;
+
+    [NonSerialized] private WaterAction action;
+    private WaterAction Action => action ??= new WaterAction();
 
     public WaterCan()
     {
@@ -23,15 +29,27 @@ public class WaterCan : Item
         _bought = false;
         Radius = radius;
         WaterLevel = waterLevel;
-    }
 
-    public override void Activate()
-    {
-        if (!_bought) return;
+        action = new();
     }
 
     public override void Buy()
     {
         _bought = true;
+    }
+
+    public override void Press(Vector3 pos)
+    {
+        Action.Water(pos, Radius);
+    }
+
+    public override void Hold(Vector3 pos)
+    {
+        Action.Water(pos, Radius);
+    }
+
+    public override void Release(Vector3 pos)
+    {
+        Action.StopWater(pos, Radius);
     }
 }

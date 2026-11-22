@@ -212,10 +212,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8076389950455144886}
-  - component: {fileID: 1700871644577565737}
   - component: {fileID: 2240442873267650793}
   - component: {fileID: 169432606735061928}
   - component: {fileID: 4885607057782362851}
+  - component: {fileID: 529902887870933825}
   m_Layer: 7
   m_Name: Weed1
   m_TagString: Untagged
@@ -241,28 +241,6 @@ Transform:
   - {fileID: 5512013826585308868}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1700871644577565737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127048685925623168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56028128eb1979d4eb504e1f75318f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Weed
-  weedType: 0
-  commonReward: 5
-  largeReward: 10
-  visualTransform: {fileID: 8076389950455144886}
-  root: {fileID: 1560187859200779267}
-  rb: {fileID: 2240442873267650793}
-  pullDistanceThreshold: 2
-  maxVisualLift: 0.2
-  followSpeed: 10
-  pluckPower: 2
 --- !u!50 &2240442873267650793
 Rigidbody2D:
   serializedVersion: 5
@@ -348,6 +326,25 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_SortAtRoot: 1
+--- !u!114 &529902887870933825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127048685925623168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b1d413510df4e4196fcbc221da43cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelItems.Weed
+  weedType: 0
+  pullDistanceThreshold: 2
+  maxVisualLift: 0.6
+  followSpeed: 0.5
+  pluckPower: 2
+  commonReward: 5
+  largeReward: 10
 --- !u!1 &7536303283238332432
 GameObject:
   m_ObjectHideFlags: 0

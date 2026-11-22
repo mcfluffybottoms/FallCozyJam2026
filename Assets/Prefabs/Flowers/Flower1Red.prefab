@@ -244,10 +244,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7148788937850846677}
-  - component: {fileID: 8157313856746533186}
   - component: {fileID: 1119285438343048668}
   - component: {fileID: 6852460412190870384}
-  - component: {fileID: 1164356884448634757}
+  - component: {fileID: 3084913655530559366}
   m_Layer: 6
   m_Name: Flower1Red
   m_TagString: Untagged
@@ -272,25 +271,6 @@ Transform:
   - {fileID: 2188408785306397236}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8157313856746533186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6310396212819792979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530ecec5aa473a74a9f0ed218fa5ced4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Flower
-  visualTransform: {fileID: 1838466647928080423}
-  flowerHeight: 1.2
-  maxTiltAngle: 25
-  smoothSpeed: 7
-  deadZoneWidth: 0.25
-  returnDuration: 0.55
-  returnOvershoot: 1.15
 --- !u!61 &1119285438343048668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -349,19 +329,24 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_SortAtRoot: 1
---- !u!114 &1164356884448634757
+--- !u!114 &3084913655530559366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6310396212819792979}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea370d8256fe16143a562c51a0980830, type: 3}
+  m_Script: {fileID: 11500000, guid: 048a1247f66d27b4f8598ab67ecdcbe8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlowerGrow
-  visualTransform: {fileID: 1838466647928080423}
-  growDuration: 2
-  popOvershoot: 1.25
-  popDuration: 0.35
+  m_EditorClassIdentifier: Assembly-CSharp::LevelItems.Flower
+  flowerHeight: 1.2
+  maxTiltAngle: 25
+  deadZoneWidth: 0.25
+  visual: {fileID: 5701796089341974950}
+  currentProgress: 0
+  smoothSpeed: 7
+  growDuration: 1.5
+  returnDuration: 0.55
+  returnOvershoot: 1.15

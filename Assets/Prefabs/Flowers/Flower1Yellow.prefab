@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6093742428554176095}
-  - component: {fileID: 4920719374392422724}
   - component: {fileID: 8094723608701955127}
   - component: {fileID: 623348328060404865}
-  - component: {fileID: 9152212323871234696}
+  - component: {fileID: 2496788324648349674}
   m_Layer: 6
   m_Name: Flower1Yellow
   m_TagString: Untagged
@@ -37,25 +36,6 @@ Transform:
   - {fileID: 4170950684988425324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4920719374392422724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451630659185608902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530ecec5aa473a74a9f0ed218fa5ced4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Flower
-  visualTransform: {fileID: 2376675885526746482}
-  flowerHeight: 1.2
-  maxTiltAngle: 25
-  smoothSpeed: 7
-  deadZoneWidth: 0.25
-  returnDuration: 0.55
-  returnOvershoot: 1.15
 --- !u!61 &8094723608701955127
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,22 +94,27 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_SortAtRoot: 1
---- !u!114 &9152212323871234696
+--- !u!114 &2496788324648349674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451630659185608902}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea370d8256fe16143a562c51a0980830, type: 3}
+  m_Script: {fileID: 11500000, guid: 048a1247f66d27b4f8598ab67ecdcbe8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlowerGrow
-  visualTransform: {fileID: 2376675885526746482}
-  growDuration: 2
-  popOvershoot: 1.25
-  popDuration: 0.35
+  m_EditorClassIdentifier: Assembly-CSharp::LevelItems.Flower
+  flowerHeight: 1.2
+  maxTiltAngle: 25
+  deadZoneWidth: 0.25
+  visual: {fileID: 4182458018177787342}
+  currentProgress: 0
+  smoothSpeed: 7
+  growDuration: 1.5
+  returnDuration: 0.55
+  returnOvershoot: 1.15
 --- !u!1 &3470482329695233836
 GameObject:
   m_ObjectHideFlags: 0

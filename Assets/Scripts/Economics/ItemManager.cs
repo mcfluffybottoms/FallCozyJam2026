@@ -1,12 +1,30 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    // set up show
+    // items
+
+    // hand
+
+    // watering can
+
+    // shovels
+
+
+    // inventory
     [SerializeReference, SubclassSelector]
     private List<Item> itemList = new();
+    // [SerializeReference, SubclassSelector]
+    // private List<Item> itemList = new();
+
+
+    private List<Item> boughtItems = new();
+    private List<Item> availableItems = new();
     private int ActiveItemId = 0;
-    private MoneySaver moneySaver = new();
+    [SerializeField] private EconomyManager economyManager;
 
     public void BuyItem(int itemID)
     {
@@ -16,32 +34,31 @@ public class ItemManager : MonoBehaviour
         }
         var item = itemList[itemID];
 
-        if ((item.Bought && !item.Rebuyable) || moneySaver.Money < item.Cost)
+        if (!IsBuyable(itemID) || GetBudget() < item.Cost)
         {
-            int diff = item.Cost - moneySaver.Money;
+            int diff = item.Cost - GetBudget();
             return;
         }
-
-        if (!item.Bought || item.Rebuyable)
+        else if (!item.Bought || item.Rebuyable)
         {
-            moneySaver.DecreaseMoney(item.Cost);
+            GetMoneySaver().DecreaseMoney(item.Cost);
             item.Buy();
         }
-        item.Activate();
         SetActiveItem(itemID);
 
         if (SoundManager.Instance != null)
             SoundManager.Instance.PlayUIButton();
     }
 
+    public bool IsBuyable(int itemID)
+    {
+        var item = itemList[itemID];
+        return !(item.Bought && !item.Rebuyable);
+    }
+
     public List<Item> GetItemList()
     {
         return itemList;
-    }
-
-    public int GetBudget()
-    {
-        return moneySaver.Money;
     }
 
     public Item GetActiveItem()
@@ -56,6 +73,12 @@ public class ItemManager : MonoBehaviour
 
     public MoneySaver GetMoneySaver()
     {
-        return moneySaver;
+        return economyManager.MoneySaver;
     }
+    public int GetBudget()
+    {
+        return economyManager.MoneySaver.Money;
+    }
+
+
 }

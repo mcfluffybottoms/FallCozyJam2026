@@ -230,7 +230,7 @@ namespace UI.LevelScene
                     color.a = 0.5f;
                     cost.style.backgroundColor = color;
                 }
-                cost.clicked += () => BuyView(id);
+                cost.clicked += () => PressShopButton(id);
             }
 
             var view = item.Q<VisualElement>("ShopView");
@@ -268,9 +268,29 @@ namespace UI.LevelScene
             return Resources.Load<Sprite>($"UI/Items/{data.Name.Replace(" ", "")}");
         }
 
+        private void PressShopButton(int itemId)
+        {
+            if (_itemManager.IsBuyable(itemId))
+            {
+                BuyView(itemId);
+            }
+            else
+            {
+                SetView(itemId);
+            }
+
+        }
+
         private void BuyView(int itemId)
         {
             _itemManager.BuyItem(itemId);
+            UpdateShopList("");
+            SetScoreView();
+        }
+
+        private void SetView(int itemId)
+        {
+            _itemManager.SetActiveItem(itemId);
             UpdateShopList("");
             SetScoreView();
         }
